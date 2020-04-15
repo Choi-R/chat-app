@@ -1,10 +1,14 @@
-let app = require("express")();
+let express = require("express");
+let app = express();
+var path = require("path");
 let http = require("http").createServer(app);
 let io = require("socket.io")(http);
 
 app.get("/", function (req, res) {
   // res.sendFile(__dirname + "/index.html");
-  res.sendFile(process.cwd() + "/index.html");
+  // res.sendFile(process.cwd() + "/index.html");
+  res.sendFile(path.resolve(process.cwd() + "/index.html"));
+  // app.use(express.static(path.join(__dirname, "../index.html")));
   // res.render("index");
 });
 

@@ -3,6 +3,7 @@ let app = express();
 var path = require("path");
 let http = require("http").createServer(app);
 let io = require("socket.io")(http);
+const port = process.env.PORT || 3000;
 
 app.get("/", function (req, res) {
   // res.sendFile(__dirname + "/index.html");
@@ -18,8 +19,8 @@ io.on("connection", (socket) => {
   });
 });
 
-http.listen(3000, () => {
-  console.log("listening on port 3000");
+http.listen(port, () => {
+  console.log(`listening on port ${port}`);
 });
 
 // Here are some ideas to improve the application:

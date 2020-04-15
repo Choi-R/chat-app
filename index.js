@@ -3,7 +3,9 @@ let http = require("http").createServer(app);
 let io = require("socket.io")(http);
 
 app.get("/", function (req, res) {
-  res.sendFile(__dirname + "/index.html");
+  // res.sendFile(__dirname + "/index.html");
+  res.sendFile(process.cwd() + "/index.html");
+  // res.render("index");
 });
 
 io.on("connection", (socket) => {
